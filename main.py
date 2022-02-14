@@ -42,11 +42,12 @@ def go_distance(inch,speed):
 
 def rotate(angle,speed):
     #180 = 291
-    a = 291 *4
+    a = 291.5 *2 #This is a constant for how much the motors move to go 360 degrees
+    fixedangle = (angle * a ) / 360
     angleMA = motorA.angle()
     angleMB = motorB.angle()
-    motorA.run_target(speed, angleMA+ a, then=Stop.HOLD, wait=False)    
-    motorB.run_target(speed, angleMB- a, then=Stop.HOLD, wait=True) 
+    motorA.run_target(speed, angleMA+ fixedangle, then=Stop.HOLD, wait=False)    
+    motorB.run_target(speed, angleMB- fixedangle, then=Stop.HOLD, wait=True) 
 
 
 
